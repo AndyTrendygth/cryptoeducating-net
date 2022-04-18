@@ -3,11 +3,13 @@ import Image from "next/image"
 import Link from "next/link"
 import styles from "./Navbar.module.css"
 import SearchComponent from './SearchComponent'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { getCategoriesAll } from '../services'
 
 const Nav = ({categories}) => {
     const [active, setActive] = useState(false);
     const handleClick = () => {setActive(!active);};
+    
   return (
     <nav>
         <div className={`md:flex flex-row justify-between items-center hidden`}>
@@ -18,7 +20,7 @@ const Nav = ({categories}) => {
                    <svg fill="currentColor" viewBox="0 0 20 20" className="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1"><path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"></path></svg>
                    <div className={`${styles.navitem} bg-gray-700 rounded-lg pt-4 px-1 pb-2 absolute`}>
                     <div className='grid grid-cols-2'>
-                        {categories.categories.map((category)=>{
+                        { categories.map((category)=>{
                             if(category.getStarted==false){
                             return <div key={category.id}>
                                 <Link href={`/category/${category.slug}`}>
@@ -34,7 +36,7 @@ const Nav = ({categories}) => {
                     <button className='mb-2'>Get Started</button>
                     <svg fill="currentColor" viewBox="0 0 20 20" className="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1"><path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"></path></svg>
                     <div className={` ${styles.navitem} absolute bg-gray-700 rounded-lg pt-4 px-1 pb-2 `}>
-                    {categories.categories.map((category)=>{
+                    {categories.map((category)=>{
                         if(category.getStarted==true){
                             return <div key={category.id}>
                                 <Link href={`/category/${category.slug}`}>
@@ -69,7 +71,7 @@ const Nav = ({categories}) => {
                    <svg fill="currentColor" viewBox="0 0 20 20" className="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1"><path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"></path></svg>
                    <div className={`${styles.navitem} bg-gray-700 rounded-lg pt-4 px-1 pb-2 absolute`}>
                     <div className='grid grid-cols-2'>
-                        {categories.categories.map((category)=>{
+                        {categories.map((category)=>{
                             if(category.getStarted==false){
                             return <div key={category.id}>
                                 <Link href={`/category/${category.slug}`}>
@@ -85,7 +87,7 @@ const Nav = ({categories}) => {
                     <button className='mb-2'>Get Started</button>
                     <svg fill="currentColor" viewBox="0 0 20 20" className="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1"><path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"></path></svg>
                     <div className={` ${styles.navitem} absolute bg-gray-700 rounded-lg pt-4 px-1 pb-2 `}>
-                    {categories.categories.map((category)=>{
+                    {categories.map((category)=>{
                         if(category.getStarted==true){
                             return <div key={category.id}>
                                 <Link href={`/category/${category.slug}`}>

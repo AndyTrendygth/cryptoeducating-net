@@ -24,6 +24,7 @@ export const getCategories = async()=>{
     name
     slug
     id
+    
   }
 }
   `
@@ -34,10 +35,11 @@ export const getCategories = async()=>{
 export const getCategoriesAll = async()=>{
   const query = gql`
   query GetCategoires {
-  categories() {
+  categories {
     name
     slug
     id
+    getStarted
   }
 }
   `
