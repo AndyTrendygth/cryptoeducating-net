@@ -85,7 +85,7 @@ const PostDetail = ({post}) => {
                 <a
                   href={href}
                   target={openInNewTab ? '_blank' : '_self'}
-                  rel={rel || 'noopener'}
+                  rel={ 'noreferrer noopener'}
                   {...rest}
                   className="hover:text-purple-700 underline"
                 >
