@@ -6,7 +6,7 @@ import Image from "next/image"
 const PostCard = ({post}) => {
 
   return (
-    <Link href={`/post/${post.slug}`}>
+    <Link href={`/post/${post.slug}`} passHref>
     <div className='bg-gray-800 rounded-lg mr-5 hover:shadow-gray-500 hover:shadow-lg pb-4 cursor-pointer mb-3'>
       <div className=' rounded-lg'>
         <Image src={post.featuredImage.url} alt="Article Image" className='rounded-lg' height={900} width={1600}  />

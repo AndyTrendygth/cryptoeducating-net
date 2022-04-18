@@ -46,7 +46,7 @@ const SearchComponent = () => {
                    return val
                }
            }).map((post)=>{
-           return <Link href={`/post/${post.slug}`}><a onClick={handle}><div className='hover:bg-gray-700 rounded-lg p-1'>{post.title}</div></a></Link>
+           return <Link href={`/post/${post.slug}`} key={post.id}><a onClick={handle}><div className='hover:bg-gray-700 rounded-lg p-1'>{post.title}</div></a></Link>
        })}
        {categories.filter((val)=>{
                if(search==""){
@@ -56,7 +56,7 @@ const SearchComponent = () => {
                    return val
                }
            }).map((category)=>{
-           return <Link href={`/category/${category.slug}`}><a onClick={handle}><div className='hover:bg-gray-700 rounded-lg p-1'>{category.name}</div></a></Link>
+           return <Link href={`/category/${category.slug}`} key={category.id}><a onClick={handle}><div className='hover:bg-gray-700 rounded-lg p-1'>{category.name}</div></a></Link>
        })}
        {promos.filter((val)=>{
                if(search==""){
@@ -66,7 +66,7 @@ const SearchComponent = () => {
                    return val
                }
            }).map((promo)=>{
-           return <Link href={`${promo.link}`}><a onClick={handle}><div className='hover:bg-gray-700 rounded-lg p-1'>{promo.name}</div></a></Link>
+           return <Link href={`${promo.link}`} key={promo.id}><a onClick={handle}><div className='hover:bg-gray-700 rounded-lg p-1'>{promo.name}</div></a></Link>
        })}
 
        </div>

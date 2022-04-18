@@ -22,7 +22,7 @@ const terms = () => {
                 -	use the materials for any commercial purpose, or for any public display (commercial or non-commercial);<br/>
                 -	attempt to decompile or reverse engineer any software contained on Cryptoeducatings services;<br/>
                 -	remove any copyright or other proprietary notations from the materials; or<br/>
-                -	transfer the materials to another person or "mirror" the materials on any other server.<br/>
+                -	transfer the materials to another person or &quot;mirror&quot; the materials on any other server.<br/>
                 This license shall automatically terminate if you violate any of these restrictions and may be terminated by Cryptoeducating at any time. Upon terminating your viewing of these materials or upon the termination of this license, you must destroy any downloaded materials in your possession whether in electronic or printed format.</p>
                 </li>
                 <li>

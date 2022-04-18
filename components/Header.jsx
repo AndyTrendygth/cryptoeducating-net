@@ -17,7 +17,7 @@ const Header = () => {
         <h2 className='text-2xl pb-8 font-thin'>crypto made simple for you</h2>
         <div>
           <h2 className='text-3xl pt-28 mt-10 font-bold'>
-            Crypto shouldn't be difficult
+            Crypto shouldn&apos;t be difficult
           </h2>
           <h2 className='text-3xl pb-5 pt-4 font-normal'>
             Get educated <p className='underline inline'>NOW</p> with our short and beginner friendly articles!

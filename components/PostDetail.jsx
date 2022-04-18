@@ -3,7 +3,7 @@ import Link from "next/link"
 import FeaturedPosts from './FeaturedPosts';
 import { RichText } from '@graphcms/rich-text-react-renderer';
 import Image from "next/image"
-import { Head } from 'next/document';
+
 
 const PostDetail = ({post}) => {
 
@@ -12,9 +12,9 @@ const PostDetail = ({post}) => {
         
         switch (type) {
         case 'heading-two':
-        return <Link href={`${post.slug}/#${text}`}><h2 key={index} className="text-xl font-medium hover:text-purple-700 cursor-pointer mx-3">{modifiedText.map((item, i) => <React.Fragment key={i}>{text}</React.Fragment>)}</h2></Link>;
+        return <Link passHref href={`${post.slug}/#${text}`}><h2 key={index} className="text-xl font-medium hover:text-purple-700 cursor-pointer mx-3">{modifiedText.map((item, i) => <React.Fragment key={i}>{text}</React.Fragment>)}</h2></Link>;
         case 'heading-three':
-        return <Link href={`${post.slug}/#${text}`}><h3 key={index} className="text-xl font-light ml-8 hover:text-purple-700 cursor-pointer">{modifiedText.map((item, i) => <React.Fragment key={i}>{text}</React.Fragment>)}</h3></Link>;
+        return <Link passHref href={`${post.slug}/#${text}`}><h3 key={index} className="text-xl font-light ml-8 hover:text-purple-700 cursor-pointer">{modifiedText.map((item, i) => <React.Fragment key={i}>{text}</React.Fragment>)}</h3></Link>;
         case 'heading-four':
         return <h4 key={index} className="text-md font-semibold mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{text}</React.Fragment>)}</h4>;
         case 'paragraph':
@@ -33,7 +33,7 @@ const PostDetail = ({post}) => {
         <div className='flex flex-col text-center md:basis-1/2 basis-6/8'>
             <div className='flex flex-row' key={post.id}>
                 {post.categories.map((category)=>(
-                    <Link href={`/category/${category.slug}`}>
+                    <Link href={`/category/${category.slug}`} key={category.id}>
                     <a className='p-1 font-light bg-gray-700 rounded-lg text-left mr-2'>{category.name}</a>
                     </Link>
                 ))}

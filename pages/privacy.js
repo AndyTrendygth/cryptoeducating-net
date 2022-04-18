@@ -31,7 +31,7 @@ const privacy = () => {
             <p className='my-3'>2. Usage Data</p><br/>
             <p>
             We may also collect information that your browser sends whenever you visit our Service or when you access Service by or through any device (“Usage Data”).
-            This Usage Data may include information such as your computer's Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that you visit, the time and date of your visit, the time spent on those pages, unique device identifiers and other diagnostic data.
+            This Usage Data may include information such as your computer&apos;s Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that you visit, the time and date of your visit, the time spent on those pages, unique device identifiers and other diagnostic data.
             When you access Service with a device, this Usage Data may include information such as the type of device you use, your device unique ID, the IP address of your device, your device operating system, the type of Internet browser you use, unique device identifiers and other diagnostic data.
             </p>
             </li>
@@ -108,7 +108,7 @@ const privacy = () => {
             <li>
             <p className='my-3'>10. Third party links</p><br/>
             <p>
-            Our Service may contain links to other sites that are not operated by us. If you click a third party link, you will be directed to that third party's site. We strongly advise you to review the Privacy Policy of every site you visit.
+            Our Service may contain links to other sites that are not operated by us. If you click a third party link, you will be directed to that third party&apos;s site. We strongly advise you to review the Privacy Policy of every site you visit.
             We have no control over and assume no responsibility for the content, privacy policies or practices of any third party sites or services.
             </p>
             </li>

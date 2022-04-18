@@ -10,11 +10,11 @@ const about = () => {
       </Head>
         <h1 className='text-3xl mb-5'>About</h1>
         <div className='text-left ml-5 mb-5'>
-            <p>Cryptoeducating's purpose is to constantly educate the new and advanced crypto people. <br/>
+            <p>Cryptoeducating&apos;s purpose is to constantly educate the new and advanced crypto people. <br/>
              Everything you need is in one place and easy to use.<br/>
             Regular posts about simpler and more difficult topics, guides, tools and promo codes will give you an edge alongside your journey<br/>
             <br/>
-            Let's educate as many people as possible! 
+            Let&apos;s educate as many people as possible! 
             Cheers.
              </p>
         </div>
