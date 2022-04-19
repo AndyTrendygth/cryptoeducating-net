@@ -3,29 +3,18 @@ import { getPosts2, getCategoriesAll, getPromo } from '../services'
 import { useState } from 'react/cjs/react.development'
 import { useEffect } from 'react/cjs/react.development'
 import Link from 'next/link'
+import useSWR from 'swr'
 
-const SearchComponent = () => {
-    const [posts,setPosts]=useState([]);
-    const [categories,setCategories]=useState([]);
-    const [promos,setPromo]=useState([]);
+const fetcher = query => request(process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT, query);
+
+const SearchComponent = ({searcher}) => {
+ 
     const [search,setSearch]=useState("");
     const [act,setAct]=useState(false);
 
     const handle = ()=>{
         setAct(!act);
     }
-   
-    useEffect(()=>{
-        getPosts2().then((result)=>{
-            setPosts(result);
-        });
-        getCategoriesAll().then((result)=>{
-            setCategories(result);
-        });
-        getPromo().then((result)=>{
-            setPromo(result);
-        })
-    },[]);
 
   return (
     <div>
@@ -38,7 +27,7 @@ const SearchComponent = () => {
         }}
         />
        <div className={`${act ? "hidden":""} flex flex-col absolute bg-gray-900 p-2 rounded-lg focus:block`}>
-           {posts.filter((val)=>{
+           { searcher.posts.filter((val)=>{
                if(search==""){
                    
                }
@@ -48,7 +37,7 @@ const SearchComponent = () => {
            }).map((post)=>{
            return <Link href={`/post/${post.slug}`} key={post.id}><a onClick={handle}><div className='hover:bg-gray-700 rounded-lg p-1'>{post.title}</div></a></Link>
        })}
-       {categories.filter((val)=>{
+       {searcher.categories.filter((val)=>{
                if(search==""){
                    
                }
@@ -58,7 +47,7 @@ const SearchComponent = () => {
            }).map((category)=>{
            return <Link href={`/category/${category.slug}`} key={category.id}><a onClick={handle}><div className='hover:bg-gray-700 rounded-lg p-1'>{category.name}</div></a></Link>
        })}
-       {promos.filter((val)=>{
+       {searcher.promolinks.filter((val)=>{
                if(search==""){
                    
                }

@@ -6,7 +6,7 @@ import SearchComponent from './SearchComponent'
 import { useState, useEffect } from 'react';
 import { getCategoriesAll } from '../services'
 
-const Nav = ({categories}) => {
+const Nav = ({categories, search}) => {
     const [active, setActive] = useState(false);
     const handleClick = () => {setActive(!active);};
     
@@ -53,7 +53,7 @@ const Nav = ({categories}) => {
                 <Link href="/promocodes"><a className='hover:bg-purple-700 p-3 rounded-lg'>Promo Codes</a></Link>
                 </div>
                 <div className='mx-4'>
-                    <SearchComponent/>
+                    <SearchComponent searcher={search}/>
                 </div>
             </div>
         </div>
@@ -105,7 +105,7 @@ const Nav = ({categories}) => {
                 </div>
             </div>
             <div className='flex flex-row m-4 justify-center'>
-                    <SearchComponent/>
+                    <SearchComponent searcher={search}/>
             </div>
         </div>
     </nav>

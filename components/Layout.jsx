@@ -25,10 +25,27 @@ const Layout = ({children}) => {
   )
 
 if (error) return <div>failed to load</div>
+const {data:search,error:searchError} = useSWR(`query MyQuery {
+  categories {
+    id
+    name
+    slug
+  }
+  posts {
+    id
+    slug
+    title
+  }
+  promolinks {
+    id
+    name
+    link
+  }
+}`,fetcher)
 
   return (
     <>
-    <Nav categories={data? data.categories:[]}/>
+    <Nav categories={data? data.categories:[]} search={search? search:[]}/>
     <main>{children}</main>
     <Footer/>
     <CookieConsent
