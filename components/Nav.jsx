@@ -58,12 +58,17 @@ const Nav = ({categories, search}) => {
             </div>
         </div>
         <div className="md:hidden flex justify-between mt-2 mr-2">
-        <Link href="/"><a><Image src="/Logo_v14-min.png" alt="Cryptoeducating Logo" className='cursor-pointer' width={265} height={75}/></a></Link>
-        <button className="" onClick={handleClick}>
-        <svg className="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-        </button> </div>
+            <div className='flex flex-row'>
+                <Link href="/"><a><Image src="/Logo_v14-min.png" alt="Cryptoeducating Logo" className='cursor-pointer' width={265} height={75}/></a></Link>
+            </div>
+            <div className='flex flex-row justify-end'>
+                <button className="" onClick={handleClick}>
+                <svg className="w-8 h-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+                </button>
+            </div>
+         </div>
         <div className={`${active ? "":"hidden"} flex flex-col`}>
             <div className='flex flex-row justify-center'>
             <div className={`${styles.nav} md:hidden mx-2`}>

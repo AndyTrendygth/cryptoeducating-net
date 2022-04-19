@@ -19,8 +19,8 @@ const FeaturedPosts = ({categories, slug}) => {
         cat.push(index.slug);
     })
     useEffect(()=>{
-           getPosts_similar(slug,categories).then((result)=>setPosts(result))
-    },[slug,categories]);
+           getPosts_similar(slug,cat).then((result)=>setPosts(result))
+    },[slug]);
 
   return (
     <Carousel responsive={responsive} containerClass='mx-5'>

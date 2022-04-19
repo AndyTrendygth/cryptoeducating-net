@@ -26,10 +26,9 @@ const PostDetail = ({post}) => {
                                                    
     return (
       
-        <div>
-         
-    <div className='flex flex-row pt-3 mb-4'>
-        <div className='md:basis-1/4 basis-1/8'></div>
+  <div>
+    <div className=' pt-3 mb-4'>
+        <div className='md:basis-1/4 hidden'></div>
         <div className='flex flex-col text-center md:basis-1/2 basis-6/8'>
             <div className='flex flex-row' key={post.id}>
                 {post.categories.map((category)=>(
@@ -41,7 +40,7 @@ const PostDetail = ({post}) => {
             <div className='text-4xl text-center my-4 '>
                 <h1>{post.title}</h1>    
             </div>
-            <div className='justify-center p-3'>
+            <div className='p-3'>
                 <Image src={post.featuredImage.url} alt={post.title} className="rounded-xl" width={1600} height={900}/>
             </div>
             <div className='flex flex-col bg-gray-700 rounded-lg mx-3 mb-4 pb-2 text-left'>
@@ -51,7 +50,7 @@ const PostDetail = ({post}) => {
                 return getHeading(index, children, typeObj.type)
                 })}
             </div>
-            <div className='text-left mx-3'>
+            <div className='text-left mx-3 inline-block'>
             <RichText
         content={post.content.raw}
         renderers={{
@@ -77,7 +76,7 @@ const PostDetail = ({post}) => {
           >
           {children}
           </pre>),
-          p: ({children})=><p className='text-lg'>{children}</p>,
+          p: ({children})=><p className='text-lg break-words'>{children}</p>,
           a: ({ children, openInNewTab, href, rel, ...rest }) => {
             if (href.match(/^https?:\/\/|^\/\//i)) {
               return (
@@ -108,9 +107,9 @@ const PostDetail = ({post}) => {
         }}/>
             </div>
         </div>
-        <div className='flex md:basis-1/4'></div>
+        <div className='md:flex md:basis-1/4 hidden' ></div>
     </div>
-    <div className='justify-center items-center my-4'>
+    <div className='my-4'>
         <h1 className='text-3xl text-center mt-4 my-4'>Related Posts</h1>
         <FeaturedPosts slug={post.slug} categories={post.categories}/>
     </div>
