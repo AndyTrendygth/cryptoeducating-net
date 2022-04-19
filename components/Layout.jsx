@@ -23,8 +23,6 @@ const Layout = ({children}) => {
   `,
     fetcher
   )
-
-if (error) return <div>failed to load</div>
 const {data:search,error:searchError} = useSWR(`query MyQuery {
   categories {
     id
@@ -42,6 +40,7 @@ const {data:search,error:searchError} = useSWR(`query MyQuery {
     link
   }
 }`,fetcher)
+if (error) return <div>failed to load</div>
 
   return (
     <>
