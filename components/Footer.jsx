@@ -17,7 +17,7 @@ const Footer = () => {
                 <h3 className='font-semibold'>Discover</h3>
                 <br />
                 <Link href="/category/crypto-basics"><a className='cursor-pointer'>Beginner Posts</a></Link>
-                <Link href="/tools"><a className='cursor-pointer'>Tools</a></Link>
+                <Link href="/category/tools"><a className='cursor-pointer'>Tools</a></Link>
                 <Link href="/promocodes"><a className='cursor-pointer'>Promo Codes</a></Link>
             </div>
             <div className='flex flex-col mb-3'>
