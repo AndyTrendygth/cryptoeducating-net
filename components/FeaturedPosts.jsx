@@ -1,6 +1,6 @@
 import React from 'react'
-import { useEffect } from 'react/cjs/react.development'
-import { useState } from 'react/cjs/react.development'
+import { useEffect } from 'react'
+import { useState } from 'react'
 import Carousel from 'react-multi-carousel'
 import { getPosts_similar } from '../services'
 import PostCard from './PostCard'
@@ -19,7 +19,7 @@ const FeaturedPosts = ({categories, slug}) => {
         cat.push(index.slug);
     })
     useEffect(()=>{
-           getPosts_similar(slug,cat).then((result)=>setPosts(result))
+           getPosts_similar(slug,categories).then((result)=>setPosts(result))
     },[slug]);
 
   return (

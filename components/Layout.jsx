@@ -3,14 +3,21 @@ import Footer from './Footer'
 import Nav from './Nav'
 import CookieConsent from 'react-cookie-consent'
 import Link from "next/link"
+import { useEffect,useState } from 'react'
+import { getCategoriesAll } from '../services'
 
 
 
 const Layout = ({children}) => {
-  
+
+const [search1,setSearch]=useState([]);
+const [categories,setCategories]=useState([]);
+useEffect(()=>{
+  getCategoriesAll().then((result)=>{setCategories(result)})
+},[])
   return (
     <>
-    <Nav />
+    <Nav categories={categories=="undefined"? []:categories} />
     <main>{children}</main>
     <Footer/>
     <CookieConsent

@@ -3,12 +3,15 @@ import PostCard from '../../components/PostCard';
 import { getCategoriesAll, getCategoryPosts } from '../../services';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
-
+import {useState,useEffect} from 'react'
 
 const CategoryPage = ({posts}) => {
     const router = useRouter();
     const {slug} = router.query;
-    
+    const [postss,setPostss]=useState([]);
+    useEffect(()=>{
+        setPostss(posts);
+    })
   return (
       <>
       <Head>
@@ -18,7 +21,7 @@ const CategoryPage = ({posts}) => {
       <div className='mx-5 my-8'>
         <h1 className='text-3xl text-center my-3 capitalize'>{slug}</h1>
         <div className='grid md:grid-cols-3 grid-flow-row'>
-            {posts.map((post)=>{
+        {postss.map((post)=>{
                 return <PostCard key={post.title}  post={post}/>
             })}
         </div>
@@ -32,15 +35,15 @@ export default CategoryPage
 export async function getStaticProps({params}){
     const posts = (await getCategoryPosts(params.slug)||[]);
     return{
-        props:{posts},
-    };
+        props:{posts}
+    }
 }
 
 export async function getStaticPaths(){
-    const categories = (await getCategoriesAll()||[]);
+    const categories = (await getCategoriesAll()||null);
     return {
         paths:categories.map(({slug})=>({params:{slug}})),
-        fallback:true,
-    };
+        fallback:true
+    }
 }
 
