@@ -45,7 +45,7 @@ const {data:search,error:searchError} = useSWR(`query MyQuery {
 
   return (
     <>
-    <Nav categories={data? data.categories:[]} search={search? search:[]}/>
+    <Nav categories={data? data.categories:[]} search={search}/>
     <main>{children}</main>
     <Footer/>
     <CookieConsent
