@@ -44,7 +44,7 @@ if (error) return <div>failed to load</div>
 
   return (
     <>
-    <Nav categories={data.categories} search={search}/>
+    <Nav categories={data? data.categories:[]} search={search? search:[]}/>
     <main>{children}</main>
     <Footer/>
     <CookieConsent
