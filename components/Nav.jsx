@@ -53,7 +53,7 @@ const Nav = ({categories, search}) => {
                 <Link href="/promocodes"><a className='hover:bg-purple-700 p-3 rounded-lg'>Promo Codes</a></Link>
                 </div>
                 <div className='mx-4'>
-                    
+                    <SearchComponent/>
                 </div>
             </div>
         </div>
@@ -105,7 +105,7 @@ const Nav = ({categories, search}) => {
                 </div>
             </div>
             <div className='flex flex-row m-4 justify-center'>
-                    
+                    <SearchComponent/>
             </div>
         </div>
     </nav>

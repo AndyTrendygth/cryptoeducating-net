@@ -1,10 +1,12 @@
 import React from 'react'
 import { useState } from 'react'
-
+import useSWR from 'swr'
+import request from 'graphql-request'
 import Link from 'next/link'
 
+const fetcher = query => request(process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT,query)
 
-const SearchComponent = ({searcher}) => {
+const SearchComponent = () => {
  
     const [search,setSearch]=useState("");
     const [act,setAct]=useState(false);
@@ -13,7 +15,17 @@ const SearchComponent = ({searcher}) => {
         setAct(!act);
     }
 
-
+    const {data,error} = useSWR(
+        `
+  query MyQuery {
+  posts {
+    slug
+    title
+    id
+  }
+}
+  `,fetcher
+    )
   return (
     <div>
         <input className={`search-input py-2 px-3 rounded-lg bg-gray-700 hover:bg-gray-600 transition duration-300 outline-none`}
@@ -25,7 +37,7 @@ const SearchComponent = ({searcher}) => {
         }}
         />
        <div className={`${act ? "hidden":""} flex flex-col absolute bg-gray-900 p-2 rounded-lg focus:block`}>
-           { searcher.posts.filter((val)=>{
+           {!data? []: data.posts.filter((val)=>{
                if(search==""){
                    
                }
@@ -34,26 +46,6 @@ const SearchComponent = ({searcher}) => {
                }
            }).map((post)=>{
            return <Link href={`/post/${post.slug}`} key={post.id}><a onClick={handle}><div className='hover:bg-gray-700 rounded-lg p-1'>{post.title}</div></a></Link>
-       })}
-       {searcher.categories.filter((val)=>{
-               if(search==""){
-                   
-               }
-               else if(val.name.toLowerCase().includes(search.toLowerCase())){
-                   return val
-               }
-           }).map((category)=>{
-           return <Link href={`/category/${category.slug}`} key={category.id}><a onClick={handle}><div className='hover:bg-gray-700 rounded-lg p-1'>{category.name}</div></a></Link>
-       })}
-       {searcher.promolinks.filter((val)=>{
-               if(search==""){
-                   
-               }
-               else if(val.name.toLowerCase().includes(search.toLowerCase())){
-                   return val
-               }
-           }).map((promo)=>{
-           return <Link href={`${promo.link}`} key={promo.id}><a onClick={handle}><div className='hover:bg-gray-700 rounded-lg p-1'>{promo.name}</div></a></Link>
        })}
 
        </div>

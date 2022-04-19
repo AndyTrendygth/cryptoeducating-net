@@ -11,7 +11,7 @@ const CategoryPage = ({posts}) => {
     const [postss,setPostss]=useState([]);
     useEffect(()=>{
         setPostss(posts);
-    })
+    },[posts])
   return (
       <>
       <Head>
