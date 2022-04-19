@@ -1,11 +1,8 @@
 import React from 'react'
-import { getPosts2, getCategoriesAll, getPromo } from '../services'
 import { useState } from 'react/cjs/react.development'
-import { useEffect } from 'react/cjs/react.development'
-import Link from 'next/link'
-import useSWR from 'swr'
 
-const fetcher = query => request(process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT, query);
+import Link from 'next/link'
+
 
 const SearchComponent = ({searcher}) => {
  
