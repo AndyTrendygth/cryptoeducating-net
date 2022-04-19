@@ -12,20 +12,13 @@ const responsive = {
     tablet:{breakpoint:{max:768,min:640},items:2},
     mobile:{breakpoint:{max:640,min:0},items:1},}
 
-const BeginnerPosts = () => {
-const [posts,setPosts]=useState([]);
-const [dataloaded,setDataloaded]=useState(false);
+const BeginnerPosts = ({posts}) => {
 
-useEffect(()=>{
-    getPosts_beginner().then((result)=>{
-        setPosts(result);
-        setDataloaded(true);
-    });},[]);
 return (
     <div>
         <h2 className='text-center text-3xl pt-2' id='Beginner-Articles'>Beginner Articles</h2>
         <Carousel responsive={responsive} containerClass='py-5 mx-8'>
-                {dataloaded && posts.map((post)=>(
+                { posts.map((post)=>(
                 <PostCard key={post.title} post={post}/>
             ))}
         </Carousel>

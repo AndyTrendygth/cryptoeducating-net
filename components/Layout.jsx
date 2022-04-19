@@ -3,48 +3,14 @@ import Footer from './Footer'
 import Nav from './Nav'
 import CookieConsent from 'react-cookie-consent'
 import Link from "next/link"
-import useSWR from 'swr'
-import { request } from 'graphql-request'
 
 
-const fetcher = query => request(process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT, query)
 
 const Layout = ({children}) => {
-  const { data, error } = useSWR(
-    `
-  query GetCategoires {
-  categories {
-    name
-    slug
-    id
-    getStarted
-  }
-}
-  `,
-    fetcher
-  )
-const {data:search,error:searchError} = useSWR(`query MyQuery {
-  categories {
-    id
-    name
-    slug
-  }
-  posts {
-    id
-    slug
-    title
-  }
-  promolinks {
-    id
-    name
-    link
-  }
-}`,fetcher)
-if (error) return <div>failed to load</div>
-
+  
   return (
     <>
-    <Nav categories={data? data.categories:[]} search={search}/>
+    <Nav />
     <main>{children}</main>
     <Footer/>
     <CookieConsent

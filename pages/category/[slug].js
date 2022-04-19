@@ -30,14 +30,14 @@ const CategoryPage = ({posts}) => {
 export default CategoryPage
 
 export async function getStaticProps({params}){
-    const posts = await getCategoryPosts(params.slug);
+    const posts = (await getCategoryPosts(params.slug)||[]);
     return{
         props:{posts},
     };
 }
 
 export async function getStaticPaths(){
-    const categories = await getCategoriesAll();
+    const categories = (await getCategoriesAll()||[]);
     return {
         paths:categories.map(({slug})=>({params:{slug}})),
         fallback:true,
