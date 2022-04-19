@@ -12,6 +12,9 @@ const SearchComponent = ({searcher}) => {
     const handle = ()=>{
         setAct(!act);
     }
+    if(!searcher){
+        return <div>loading</div>
+    }
 
   return (
     <div>

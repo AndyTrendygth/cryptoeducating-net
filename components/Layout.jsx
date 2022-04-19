@@ -41,7 +41,7 @@ const {data:search,error:searchError} = useSWR(`query MyQuery {
   }
 }`,fetcher)
 if (error) return <div>failed to load</div>
-if(!search) return <div>loading.</div>
+
   return (
     <>
     <Nav categories={data? data.categories:[]} search={search}/>
