@@ -10,9 +10,9 @@ export default function Home({posts}) {
   return (
     <div>
       <Head>
-        <title>Cryptoeducating.net</title>
+        <title>Cryptoeducating | Crypto made simple for you</title>
         <meta name="Cryptoeducating" content="The place to learn everything in crypto" />
-        <meta name='description' content='The Landing Page of cryptoeducating'/>
+        <meta name='description' content='Cryptoeducating is the place to learn everything in crypto in very simple ways. It is a free platform designed for beginners to get an easy start in crypto.'/>
       </Head>
       <Header/>
       <BeginnerPosts posts={posts}/>

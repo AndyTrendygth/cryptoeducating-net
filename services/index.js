@@ -88,6 +88,7 @@ export const getPostDetails= async(slug)=>{
   query GetPostDetails($slug:String!) {
     post(where:{slug:$slug}) {
       createdAt
+      updatedAt
       slug
       title
       excerpt

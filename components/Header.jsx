@@ -12,8 +12,8 @@ const Header = () => {
       backgroundRepeat:'no-repeat',
     }}>
       
-        <h1 className={`${styles.h1} lg:text-5xl pt-8 font-black text-2xl`} >WELCOME TO</h1>
-        <h1 className={`${styles.h1} lg:text-5xl pt-4 font-black text-2xl`} >CRYPTOEDUCATING.NET</h1>
+        <h1 className={`${styles.h1} lg:text-5xl pt-8 font-black text-3xl`} >WELCOME TO</h1>
+        <h1 className={`${styles.h1} lg:text-5xl pt-4 font-black text-3xl`} >CRYPTOEDUCATING.NET</h1>
         <h2 className='text-2xl pb-8 font-thin'>crypto made simple for you</h2>
         <div>
           <h2 className='text-3xl pt-28 mt-10 font-bold'>

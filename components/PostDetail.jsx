@@ -3,6 +3,7 @@ import Link from "next/link"
 import FeaturedPosts from './FeaturedPosts';
 import { RichText } from '@graphcms/rich-text-react-renderer';
 import Image from "next/image"
+import moment from 'moment'
 
 
 const PostDetail = ({post}) => {
@@ -12,9 +13,9 @@ const PostDetail = ({post}) => {
         
         switch (type) {
         case 'heading-two':
-        return <Link passHref href={`${post.slug}/#${text}`}><h2 key={index} className="text-xl font-medium hover:text-purple-700 cursor-pointer mx-3">{modifiedText.map((item, i) => <React.Fragment key={i}>{text}</React.Fragment>)}</h2></Link>;
+        return <Link passHref href={`/post/${post.slug}/#${text}`}><h2 key={index} className="text-xl font-medium hover:text-purple-700 cursor-pointer mx-3">{modifiedText.map((item, i) => <React.Fragment key={i}>{text}</React.Fragment>)}</h2></Link>;
         case 'heading-three':
-        return <Link passHref href={`${post.slug}/#${text}`}><h3 key={index} className="text-xl font-light ml-8 hover:text-purple-700 cursor-pointer">{modifiedText.map((item, i) => <React.Fragment key={i}>{text}</React.Fragment>)}</h3></Link>;
+        return <Link passHref href={`/post/${post.slug}/#${text}`}><h3 key={index} className="text-xl font-light ml-8 hover:text-purple-700 cursor-pointer">{modifiedText.map((item, i) => <React.Fragment key={i}>{text}</React.Fragment>)}</h3></Link>;
         case 'heading-four':
         return <h4 key={index} className="text-md font-semibold mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{text}</React.Fragment>)}</h4>;
         case 'paragraph':
@@ -27,28 +28,35 @@ const PostDetail = ({post}) => {
     return (
       
   <div>
-    <div className=' pt-3 mb-4'>
-        <div className='md:basis-1/4 hidden'></div>
+    <div className='pt-3 mb-4'>
+    <div className='md:basis-1/4 hidden'></div>
         <div className='flex flex-col text-center md:basis-1/2 basis-6/8'>
-            <div className='flex flex-row' key={post.id}>
+            <div className='flex flex-row ml-3' key={post.id}>
                 {post.categories.map((category)=>(
                     <Link href={`/category/${category.slug}`} key={category.id}>
                     <a className='p-1 font-light bg-gray-700 rounded-lg text-left mr-2'>{category.name}</a>
                     </Link>
                 ))}
             </div>
+            <div>
+            {moment(post.updatedAt).format('MM DD YYYY')}
+            </div>
             <div className='text-4xl text-center my-4 '>
                 <h1>{post.title}</h1>    
             </div>
             <div className='p-3'>
-                <Image src={post.featuredImage.url} alt={post.title} className="rounded-xl" width={1600} height={900}/>
+                <Image src={post.featuredImage.url} alt={post.title} className="rounded-xl" width={960} height={540}/>
             </div>
-            <div className='flex flex-col bg-gray-700 rounded-lg mx-3 mb-4 pb-2 text-left'>
-                <h2 className='text-2xl text-center'>Content Table</h2>
-                {post.content.raw.children.map((typeObj,index)=>{
+            <div className='flex flex-row mx-3 mb-4 pb-2 text-center justify-center'>
+                <div className='flex flex-col bg-gray-700 text-center rounded-lg m-1 p-3'>
+                  <h2 className='text-2xl text-center px-20 pb-3'>Content Table</h2>
+                  <div className='text-left' key={post.id}>
+                  {post.content.raw.children.map((typeObj,index)=>{
                 const children = typeObj.children.map((item, itemIndex)=>getHeading(itemIndex, item.text, item))
                 return getHeading(index, children, typeObj.type)
                 })}
+                </div>
+                </div>
             </div>
             <div className='text-left mx-3 inline-block'>
             <RichText
@@ -104,6 +112,15 @@ const PostDetail = ({post}) => {
           width={width}
           height={height}
           >{children}</iframe>,
+          ul:({children})=><ul>{children}</ul>,
+          ol:({children})=><ol>{children}</ol>,
+          li:({children})=><li>{children}</li>,
+          table:({children})=><table>{children}</table>,
+          table_head:({children})=><thead>{children}</thead>,
+          table_body:({children})=><tbody>{children}</tbody>,
+          table_cell:({children})=><td>{children}</td>,
+          table_row:({children})=><tr>{children}</tr>,
+          table_header_cell:({children})=><th>{children}</th>
         }}/>
             </div>
         </div>
