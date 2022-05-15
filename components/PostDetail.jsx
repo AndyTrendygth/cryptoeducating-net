@@ -13,11 +13,11 @@ const PostDetail = ({post}) => {
         
         switch (type) {
         case 'heading-two':
-        return <Link passHref href={`/post/${post.slug}/#${text}`}><h2 key={index} className="text-xl font-medium hover:text-purple-700 cursor-pointer mx-3">{modifiedText.map((item, i) => <React.Fragment key={i}>{text}</React.Fragment>)}</h2></Link>;
+        return <Link passHref href={`/post/${post.slug}/#${text}`}><h2 key={index} className="text-xl font-medium hover:text-purple-700 cursor-pointer my-1">{modifiedText.map((item, i) => <React.Fragment key={i}>{text}</React.Fragment>)}</h2></Link>;
         case 'heading-three':
         return <Link passHref href={`/post/${post.slug}/#${text}`}><h3 key={index} className="text-xl font-light ml-8 hover:text-purple-700 cursor-pointer">{modifiedText.map((item, i) => <React.Fragment key={i}>{text}</React.Fragment>)}</h3></Link>;
         case 'heading-four':
-        return <h4 key={index} className="text-md font-semibold mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{text}</React.Fragment>)}</h4>;
+        return <Link passHref href={`/post/${post.slug}/#${text}`}> <h4 key={index} className="text-xl font-light ml-8 hover:text-purple-700 cursor-pointer">{modifiedText.map((item, i) => <React.Fragment key={i}>{text}</React.Fragment>)}</h4></Link>;
         case 'paragraph':
         return <p></p>;
         default:
@@ -26,9 +26,8 @@ const PostDetail = ({post}) => {
     };
                                                    
     return (
-      
   <div>
-    <div className='pt-3 mb-4'>
+    <div className='flex flex-col pt-3 mb-4'>
     <div className='md:basis-1/4 hidden'></div>
         <div className='flex flex-col text-center md:basis-1/2 basis-6/8'>
             <div className='flex flex-row ml-3' key={post.id}>
@@ -44,11 +43,11 @@ const PostDetail = ({post}) => {
             <div className='text-4xl text-center my-4 '>
                 <h1>{post.title}</h1>    
             </div>
-            <div className='p-3'>
+            <div className='p-5'>
                 <Image src={post.featuredImage.url} alt={post.title} className="rounded-xl" width={960} height={540}/>
             </div>
-            <div className='flex flex-row mx-3 mb-4 pb-2 text-center justify-center'>
-                <div className='flex flex-col bg-gray-700 text-center rounded-lg m-1 p-3'>
+            
+                <div className='flex flex-col bg-gray-700 text-center rounded-lg mx-12 my-4 p-3'>
                   <h2 className='text-2xl text-center px-20 pb-3'>Content Table</h2>
                   <div className='text-left' key={post.id}>
                   {post.content.raw.children.map((typeObj,index)=>{
@@ -57,8 +56,8 @@ const PostDetail = ({post}) => {
                 })}
                 </div>
                 </div>
-            </div>
-            <div className='text-left mx-3 inline-block'>
+            
+            <div className='text-left mx-8 mt-4 '>
             <RichText
         content={post.content.raw}
         renderers={{
@@ -68,7 +67,7 @@ const PostDetail = ({post}) => {
           h4: ({ children }) => <h4>{children}</h4>,
           h5: ({ children }) => <h5>{children}</h5>,
           h6: ({ children }) => <h6>{children}</h6>,
-          bold: ({ children }) => <p><strong>{children}</strong></p>,
+          bold: ({ children }) => <strong>{children}</strong>,
           italic: ({ children }) => <i>{children}</i>,
           underline: ({ children }) => <u>{children}</u>,
           code: ({ children }) => <code>{children}</code>,
@@ -84,7 +83,7 @@ const PostDetail = ({post}) => {
           >
           {children}
           </pre>),
-          p: ({children})=><p className='text-lg break-words'>{children}</p>,
+          p: ({children})=><p className='text-lg break-words mb-3 text-gray-300'>{children}</p>,
           a: ({ children, openInNewTab, href, rel, ...rest }) => {
             if (href.match(/^https?:\/\/|^\/\//i)) {
               return (
@@ -114,7 +113,7 @@ const PostDetail = ({post}) => {
           >{children}</iframe>,
           ul:({children})=><ul>{children}</ul>,
           ol:({children})=><ol>{children}</ol>,
-          li:({children})=><li>{children}</li>,
+          li:({children})=><li className='mb-2'>{children}</li>,
           table:({children})=><table>{children}</table>,
           table_head:({children})=><thead>{children}</thead>,
           table_body:({children})=><tbody>{children}</tbody>,
@@ -124,7 +123,9 @@ const PostDetail = ({post}) => {
         }}/>
             </div>
         </div>
-        <div className='md:flex md:basis-1/4 hidden' ></div>
+        <div className='md:flex md:basis-1/4 hidden' >
+        
+        </div>
     </div>
     <div className='my-4'>
         <h1 className='text-3xl text-center mt-4 my-4'>Related Posts</h1>
