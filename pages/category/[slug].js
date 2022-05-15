@@ -43,7 +43,7 @@ export async function getStaticPaths(){
     const categories = (await getCategoriesAll()||null);
     return {
         paths:categories.map(({slug})=>({params:{slug}})),
-        fallback:true
+        fallback:'blocking'
     }
 }
 

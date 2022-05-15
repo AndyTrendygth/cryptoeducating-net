@@ -66,7 +66,7 @@ const Nav = ({categories, search}) => {
         </div>
         <div className="md:hidden flex justify-between mt-2 mr-2">
             <div className='flex ml-20 mt-3'>
-            <Image src="/Nav_Logo_v1.png" height={45} width={255} alt="Logo of Cryptoeducating.net"/>  
+            <Image src="/Nav_Logo_v1-min.png" height={45} width={255} alt="Logo of Cryptoeducating.net"/>  
             </div>
             
             <div className='flex flex-row justify-end'>
