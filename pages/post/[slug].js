@@ -31,7 +31,7 @@ export async function getStaticProps({params}){
   }
 
 export async function getStaticPaths(){
-    const posts = await getPosts2();
+    const posts = (await getPosts2()||null);
 
     return{
         paths:posts.map(({slug})=>({params:{slug}})),
