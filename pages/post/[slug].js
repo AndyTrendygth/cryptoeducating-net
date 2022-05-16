@@ -2,8 +2,13 @@ import React from 'react'
 import { getPostDetails, getPosts2 } from '../../services'
 import PostDetail from '../../components/PostDetail'
 import Head from "next/head"
+import { useRouter } from 'next/router';
 
 const PostDetails = ({post}) => {
+  const router = useRouter();
+  if(router.isFallback){
+    return <div>Loading...</div>
+  }
   return (
     <div>
        <Head>
@@ -35,5 +40,5 @@ export async function getStaticPaths(){
 
     return{
         paths:posts.map(({slug})=>({params:{slug}})),
-        fallback: 'blocking'}
+        fallback: true}
 }

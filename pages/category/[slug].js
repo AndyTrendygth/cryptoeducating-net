@@ -12,6 +12,10 @@ const CategoryPage = ({posts}) => {
     useEffect(()=>{
         setPostss(posts);
     },[posts])
+    
+  if(router.isFallback){
+    return <div>Loading...</div>
+  }
   return (
       <>
       <Head>
@@ -43,6 +47,6 @@ export async function getStaticPaths(){
     const categories = (await getCategoriesAll()||null);
     return {
         paths:categories.map(({slug})=>({params:{slug}})),
-        fallback:'blocking'}
+        fallback:true}
 }
 
