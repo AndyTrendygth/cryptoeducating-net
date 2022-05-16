@@ -47,7 +47,7 @@ const PostDetail = ({post}) => {
                 <Image src={post.featuredImage.url} alt={post.title} className="rounded-xl" width={960} height={540}/>
             </div>
             
-                <div className='flex flex-col bg-gray-700 text-center rounded-lg mx-12 my-4 p-3'>
+                <div className='flex flex-col bg-gray-700 text-center rounded-lg mx-12 my-4 p-3 md:hidden'>
                   <h2 className='text-2xl text-center px-20 pb-3'>Content Table</h2>
                   <div className='text-left' key={post.id}>
                   {post.content.raw.children.map((typeObj,index)=>{
@@ -56,8 +56,8 @@ const PostDetail = ({post}) => {
                 })}
                 </div>
                 </div>
-            
-            <div className='text-left mx-8 mt-4 '>
+            <div className='flex flex-row md:mx-12 mx-4'>
+            <div className='text-left mx-8 mt-4'>
             <RichText
         content={post.content.raw}
         renderers={{
@@ -83,7 +83,7 @@ const PostDetail = ({post}) => {
           >
           {children}
           </pre>),
-          p: ({children})=><p className='text-lg break-words mb-3 text-gray-300'>{children}</p>,
+          p: ({children})=><p className='text-base break-words pb-4 text-gray-300'>{children}</p>,
           a: ({ children, openInNewTab, href, rel, ...rest }) => {
             if (href.match(/^https?:\/\/|^\/\//i)) {
               return (
@@ -122,6 +122,17 @@ const PostDetail = ({post}) => {
           table_header_cell:({children})=><th>{children}</th>
         }}/>
             </div>
+            <div className='md:flex flex-col text-center hidden'>
+                  <h2 className='text-2xl text-center pt-4 '>Content Table</h2>
+                  <div className='text-left bg-gray-700 rounded-lg mx-12 my-4 p-3' key={post.id}>
+                  {post.content.raw.children.map((typeObj,index)=>{
+                const children = typeObj.children.map((item, itemIndex)=>getHeading(itemIndex, item.text, item))
+                return getHeading(index, children, typeObj.type)
+                })}
+                </div>
+                </div>
+            </div>
+        
         </div>
         <div className='md:flex md:basis-1/4 hidden' >
         
