@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Carousel from 'react-multi-carousel'
 import { getPosts_similar } from '../services'
 import PostCard from './PostCard'
+import 'react-multi-carousel/lib/styles.css';
 
 const responsive = {
     superLargeDesktop:{breakpoint:{max:4000,min:1024},items:5},
