@@ -112,14 +112,14 @@ const PostDetail = ({post}) => {
           height={height}
           >{children}</iframe>,
           ul:({children})=><ul>{children}</ul>,
-          ol:({children})=><ol>{children}</ol>,
-          li:({children})=><li className='mb-2'>{children}</li>,
-          table:({children})=><table>{children}</table>,
-          table_head:({children})=><thead>{children}</thead>,
-          table_body:({children})=><tbody>{children}</tbody>,
-          table_cell:({children})=><td>{children}</td>,
-          table_row:({children})=><tr>{children}</tr>,
-          table_header_cell:({children})=><th>{children}</th>
+          ol:({children})=><ol type='1'>{children}</ol>,
+          li:({children})=><li className='mb-2 list-disc'>{children}</li>,
+          table:({children})=><table className='border-collapse mb-2'>{children}</table>,
+          table_head:({children})=><thead className='border-2'>{children}</thead>,
+          table_body:({children})=><tbody className='border-2'>{children}</tbody>,
+          table_cell:({children})=><td className='border-2 m-2'>{children}</td>,
+          table_row:({children})=><tr className='border-2 p-2'>{children}</tr>,
+          table_header_cell:({children})=><th className='border-2'>{children}</th>
         }}/>
             </div>
             <div className='md:flex flex-col text-center hidden w-1/4'>
