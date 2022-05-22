@@ -5,6 +5,9 @@ const nextConfig = {
     domains: ['media.graphassets.com'],
   },
   optimizeFonts: true,
+  experimental:{
+    nextScriptWorkers:true
+  }
 }
 
 module.exports = nextConfig
