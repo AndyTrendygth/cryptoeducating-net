@@ -13,7 +13,7 @@ const PostDetail = ({post}) => {
         
         switch (type) {
         case 'heading-two':
-        return <Link passHref href={`/post/${post.slug}/#${text}`}><h2 key={index} className="text-xl font-medium hover:text-purple-700 cursor-pointer my-1">{modifiedText.map((item, i) => <React.Fragment key={i}>{text}</React.Fragment>)}</h2></Link>;
+        return <Link passHref href={`/post/${post.slug}/#${text}`}><h2 key={index} className="text-xl font-medium hover:text-purple-700 cursor-pointer my-1 mx-2 ">{modifiedText.map((item, i) => <React.Fragment key={i}>{text}</React.Fragment>)}</h2></Link>;
         case 'heading-three':
         return <Link passHref href={`/post/${post.slug}/#${text}`}><h3 key={index} className="text-xl font-light ml-8 hover:text-purple-700 cursor-pointer">{modifiedText.map((item, i) => <React.Fragment key={i}>{text}</React.Fragment>)}</h3></Link>;
         case 'heading-four':
@@ -57,7 +57,7 @@ const PostDetail = ({post}) => {
                 </div>
                 </div>
             <div className='flex flex-row md:mx-12 mx-4'>
-            <div className='text-left mx-8 mt-4'>
+            <div className='text-left mx-8 mt-4 w-3/4'>
             <RichText
         content={post.content.raw}
         renderers={{
@@ -83,7 +83,7 @@ const PostDetail = ({post}) => {
           >
           {children}
           </pre>),
-          p: ({children})=><p className='text-base break-words pb-4 text-gray-300'>{children}</p>,
+          p: ({children})=><p className='text-base break-words pb-3 text-gray-300'>{children}</p>,
           a: ({ children, openInNewTab, href, rel, ...rest }) => {
             if (href.match(/^https?:\/\/|^\/\//i)) {
               return (
@@ -122,9 +122,9 @@ const PostDetail = ({post}) => {
           table_header_cell:({children})=><th>{children}</th>
         }}/>
             </div>
-            <div className='md:flex flex-col text-center hidden'>
-                  <h2 className='text-2xl text-center pt-4 '>Content Table</h2>
-                  <div className='text-left bg-gray-700 rounded-lg mx-12 my-4 p-3' key={post.id}>
+            <div className='md:flex flex-col text-center hidden w-1/4'>
+                  <h2 className='text-2xl text-center pt-4'>Content Table</h2>
+                  <div className='text-left bg-gray-700 rounded-lg' key={post.id}>
                   {post.content.raw.children.map((typeObj,index)=>{
                 const children = typeObj.children.map((item, itemIndex)=>getHeading(itemIndex, item.text, item))
                 return getHeading(index, children, typeObj.type)
