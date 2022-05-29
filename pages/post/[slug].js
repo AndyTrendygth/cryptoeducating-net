@@ -18,7 +18,7 @@ const PostDetails = ({post}) => {
         <meta property='og:title' content={post.title}/>
         <meta property='og:description' content={post.excerpt}/>
         <meta property='og:image' content={post.featuredImage.url}/>
-        <meta property='og:url' content={`https://cryptoeducating.net/post/${post.slug}`}/>
+        <meta property='og:url' content={`https://www.cryptoeducating.net/post/${post.slug}`}/>
       </Head>
         <PostDetail post={post}/>
     </div>

@@ -1,4 +1,4 @@
-const siteUrl = "https://cryptoeducating.net/";
+const siteUrl = "https://www.cryptoeducating.net/";
 module.exports={
     siteUrl,
     generateRobotsTxt: true,

@@ -1,12 +1,12 @@
 import { getServerSideSitemap } from "next-sitemap";
 import { getPostDetails, getPosts2 } from '../../services'
 
-const siteUrl = "https://cryptoeducating.net/";
+const siteUrl = "https://www.cryptoeducating.net/";
 
 export const getServerSideProps = async (ctx) => {
     let posts = await getPosts2();
   const newsSitemaps = posts.map((item) => ({
-    loc: `${siteUrl}post/${item.slug}`,
+    loc: `${siteUrl}post/${item.slug}/`,
     lastmod: new Date().toISOString(),
   }));
 
