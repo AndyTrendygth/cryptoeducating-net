@@ -62,7 +62,7 @@ const PostDetail = ({post}) => {
         content={post.content.raw}
         renderers={{
           h1: ({ children }) => <h1 className="text-white">{children}</h1>,
-          h2:({children})=><h2 className='text-3xl my-2'>{children}</h2>,
+          h2:({children})=><h2 className='text-3xl my-4'>{children}</h2>,
           h3:({children})=><h2 className='text-2xl my-2'>{children}</h2>,
           h4: ({ children }) => <h4>{children}</h4>,
           h5: ({ children }) => <h5>{children}</h5>,
@@ -83,17 +83,17 @@ const PostDetail = ({post}) => {
           >
           {children}
           </pre>),
-          p: ({children})=><p className='text-base break-words pb-3 text-gray-300'>{children}</p>,
+          p: ({children})=><p className='text-base break-words pb-3'>{children}</p>,
           a: ({ children, openInNewTab, href, rel, ...rest }) => {
             if (href.match(/^https?:\/\/|^\/\//i)) {
               return (
-                <Link href={href} className="hover:bg-purple-700">
+                <Link href={href} className="bg-purple-700">
                 <a
                   href={href}
                   target={openInNewTab ? '_blank' : '_self'}
                   rel={ 'noreferrer noopener'}
                   {...rest}
-                  className="hover:text-purple-700 underline"
+                  className="text-purple-700 underline"
                 >
                   {children}
                 </a></Link>); 
@@ -139,7 +139,7 @@ const PostDetail = ({post}) => {
         </div>
     </div>
     <div className='my-4'>
-        <h1 className='text-3xl text-center mt-4 my-4'>Related Posts</h1>
+        <h2 className='text-3xl text-center mt-4 my-4'>Related Posts</h2>
         <FeaturedPosts slug={post.slug} categories={post.categories}/>
     </div>
         
