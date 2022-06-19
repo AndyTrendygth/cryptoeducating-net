@@ -3,6 +3,7 @@ import Header from '../components/Header.jsx'
 import BeginnerPosts from '../components/BeginnerPosts.jsx'
 import Tools from '../components/Tools.jsx'
 import { getPosts_beginner } from '../services/index.js'
+import Categories from '../components/Categories.jsx'
 
 
 
@@ -17,6 +18,7 @@ export default function Home({posts}) {
       <Header/>
       <BeginnerPosts posts={posts}/>
       <Tools/>
+      <Categories/>
       <br/>
       <br/>
       <br/>
