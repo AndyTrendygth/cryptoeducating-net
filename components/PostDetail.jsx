@@ -114,7 +114,7 @@ const PostDetail = ({post}) => {
           ul:({children})=><ul>{children}</ul>,
           ol:({children})=><ol type='1'>{children}</ol>,
           li:({children})=><li className='mb-2 list-disc'>{children}</li>,
-          table:({children})=><table className='border-collapse mb-2'>{children}</table>,
+          table:({children})=><div className='overflow-x-auto'><table className='border-collapse mb-2 text-center'>{children}</table></div>,
           table_head:({children})=><thead className='border-2'>{children}</thead>,
           table_body:({children})=><tbody className='border-2'>{children}</tbody>,
           table_cell:({children})=><td className='border-2 m-2'>{children}</td>,
