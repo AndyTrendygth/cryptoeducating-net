@@ -1,0 +1,277 @@
+.h1{
+    background: linear-gradient(90deg, rgba(146,52,149,1) 0%, rgba(89,36,133,1) 51%, rgba(112,21,117,1) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  display: inline-block;
+
+}
+
+.circle{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.text {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  margin: 0;
+  color: white;
+  background: linear-gradient(90deg, rgba(95,10,135) 0%, rgba(125,33,138) 52%, rgba(212,65,142) 100%);
+  border-radius: 50%;
+  box-sizing: border-box;
+  
+}
+.text::before {
+  content: "";
+  width: 50%;
+  height: 100%;
+  float: left;
+  shape-outside: polygon(
+    0 0,
+    98% 0,
+    50% 6%,
+    23.4% 17.3%,
+    6% 32.6%,
+    0 50%,
+    6% 65.6%,
+    23.4% 82.7%,
+    50% 94%,
+    98% 100%,
+    0 100%
+  );
+  shape-margin: 7%;
+  box-sizing: border-box;
+}
+
+.text p::before {
+  content: "";
+  width: 50%;
+  height: 100%;
+  float: right;
+  shape-outside: polygon(
+    2% 0%,
+    100% 0%,
+    100% 100%,
+    2% 100%,
+    50% 94%,
+    76.6% 82.7%,
+    94% 65.6%,
+    100% 50%,
+    94% 32.6%,
+    76.6% 17.3%,
+    50% 6%
+  );
+  shape-margin: 7%;
+  box-sizing: border-box;
+}
+
+
+.ellips_1
+{
+  background : -moz-linear-gradient(5.4% 58.65% 0deg,rgba(212, 65, 142, 1) 18.44%,rgba(0, 25, 212, 1) 100%);
+  background : -webkit-linear-gradient(0deg, rgba(212, 65, 142, 1) 18.44%, rgba(0, 25, 212, 1) 100%);
+  background : -webkit-gradient(linear,5.4% 58.65% ,94.16% 58.65% ,color-stop(0.1844,rgba(212, 65, 142, 1) ),color-stop(1,rgba(0, 25, 212, 1) ));
+  background : -o-linear-gradient(0deg, rgba(212, 65, 142, 1) 18.44%, rgba(0, 25, 212, 1) 100%);
+  background : -ms-linear-gradient(0deg, rgba(212, 65, 142, 1) 18.44%, rgba(0, 25, 212, 1) 100%);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#D4418E', endColorstr='#0019D4' ,GradientType=0)";
+  background : linear-gradient(90deg, rgba(212, 65, 142, 1) 18.44%, rgba(0, 25, 212, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#D4418E',endColorstr='#0019D4' , GradientType=1);
+  border-radius: 65% 35% 82% 18% / 71% 30% 70% 29%; 
+  width: 171px;
+  height: 171px;
+  position: relative;
+  margin: 0;
+  color: white;
+
+}
+.ellips_1::before {
+  content: "";
+  width: 50%;
+  height: 100%;
+  float: left;
+  shape-outside: polygon(
+    0 0,
+    98% 0,
+    50% 6%,
+    23.4% 17.3%,
+    6% 32.6%,
+    0 50%,
+    6% 65.6%,
+    23.4% 82.7%,
+    50% 94%,
+    98% 100%,
+    0 100%
+  );
+  shape-margin: 7%;
+}
+
+.ellips_1 div::before {
+  content: "";
+  width: 50%;
+  height: 100%;
+  float: right;
+  shape-outside: polygon(
+    2% 0%,
+    100% 0%,
+    100% 100%,
+    2% 100%,
+    50% 94%,
+    76.6% 82.7%,
+    94% 65.6%,
+    100% 50%,
+    94% 32.6%,
+    76.6% 17.3%,
+    50% 6%
+  );
+  shape-margin: 7%;
+}
+
+.ellips_2
+{
+  background : -moz-linear-gradient(5.4% 58.65% 0deg,rgba(212, 65, 142, 1) 18.44%,rgba(0, 25, 212, 1) 100%);
+  background : -webkit-linear-gradient(0deg, rgba(212, 65, 142, 1) 18.44%, rgba(0, 25, 212, 1) 100%);
+  background : -webkit-gradient(linear,5.4% 58.65% ,94.16% 58.65% ,color-stop(0.1844,rgba(212, 65, 142, 1) ),color-stop(1,rgba(0, 25, 212, 1) ));
+  background : -o-linear-gradient(0deg, rgba(212, 65, 142, 1) 18.44%, rgba(0, 25, 212, 1) 100%);
+  background : -ms-linear-gradient(0deg, rgba(212, 65, 142, 1) 18.44%, rgba(0, 25, 212, 1) 100%);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#D4418E', endColorstr='#0019D4' ,GradientType=0)";
+  background : linear-gradient(90deg, rgba(212, 65, 142, 1) 18.44%, rgba(0, 25, 212, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#D4418E',endColorstr='#0019D4' , GradientType=1);
+  border-radius: 82% 18% 86% 14% / 82% 54% 46% 18% ; 
+  width: 171px;
+  height: 171px;
+  
+
+}
+
+.ellips_2::before {
+  content: "";
+  width: 50%;
+  height: 100%;
+  float: left;
+  shape-outside: polygon(
+    0 0,
+    98% 0,
+    50% 6%,
+    23.4% 17.3%,
+    6% 32.6%,
+    0 50%,
+    6% 65.6%,
+    23.4% 82.7%,
+    50% 94%,
+    98% 100%,
+    0 100%
+  );
+  shape-margin: 7%;
+
+}
+
+.ellips_2 p::before {
+  content: "";
+  width: 50%;
+  height: 100%;
+  float: right;
+  shape-outside: polygon(
+    2% 0%,
+    100% 0%,
+    100% 100%,
+    2% 100%,
+    50% 94%,
+    76.6% 82.7%,
+    94% 65.6%,
+    100% 50%,
+    94% 32.6%,
+    76.6% 17.3%,
+    50% 6%
+  );
+  shape-margin: 7%;
+}
+
+
+
+
+
+@media (min-width: 350px){
+  .circle{
+    width: 320px;
+    height: 320px;
+  }  
+   .ellips_1{
+    width: 291px;
+    height: 291px;
+   }
+   .ellips_2{
+    width: 313px;
+    height: 200px;
+   }
+  }
+  
+@media (min-width: 770px){
+  .circle{
+    width: 300px;
+    height: 300px;
+  }  
+   .ellips_1{
+    width: 291px;
+    height: 291px;
+   }
+   .ellips_2{
+    width: 313px;
+    height: 200px;
+   }
+  }
+  @media (min-width: 830px) {
+    .circle {
+      width: 350px;
+      height: 350px;
+    }
+    .ellips_1{
+      width: 371px;
+      height: 371px;
+     }
+     .ellips_2{
+      width: 392px;
+      height: 250px;
+     }
+  }
+  @media (min-width: 1040px) {
+    .circle {
+      width: 350px;
+      height: 350px;
+    }
+    .ellips_1{
+      width: 371px;
+      height: 371px;
+     }
+     .ellips_2{
+      width: 392px;
+      height: 250px;
+     }
+  }
+@media (min-width: 1270px) {
+  .circle {
+    width: 400px;
+    height: 400px;
+  }
+  .ellips_1{
+    width: 471px;
+    height: 471px;
+   }
+   .ellips_2{
+    width: 471px;
+    height: 300px;
+   }
+}
+
+
+
+
+
+
+
